@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/jquery.datetimepicker.min.css" /> -->
 </head>
 <body>
     <div id="app">
@@ -28,14 +30,17 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a class="navbar-brand" href="{{ url('home') }}" style="margin-top: 15px;">
+                        {{ config('app.name', 'Appointments') }}
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                        <li style="margin-top: 15px;"><a href="{{url('home')}}">Home</a></li>
+                        <li style="margin-top: 15px;"><a href="{{url('appointments')}}">Appointments</a></li>
+                        <li style="margin-top: 15px;"><a href="{{url('clients')}}">Clients</a></li>
                         &nbsp;
                     </ul>
 
@@ -48,8 +53,10 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->first_name }} <span class="caret"></span>
+                                    <img src="{{asset('/images')}}/{{Auth::user()->picture}}" width="50" height="50">
                                 </a>
+
 
                                 <ul class="dropdown-menu">
                                     <li>
@@ -76,5 +83,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <!-- <script src="{{ asset('js/edit.js') }}"></script> -->
 </body>
 </html>

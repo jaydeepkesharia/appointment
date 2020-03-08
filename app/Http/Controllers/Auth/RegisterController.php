@@ -63,13 +63,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $request = app('request');
+        if($request->hasfile('picture')){
+            //update(['picture' => $request->file('picture')->store('adminimg','public')]);
+            $imageName = time().'.'.request()->picture->getClientOriginalExtension();
+            request()->picture->move(public_path('images'), $imageName);
+        }
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
-            //'picture' => $data['picture'],
-        //if($data->has('picture')){
-                update(['picture' => $data->file('picture')->store('adminimg','public')]),
-        //}
+            'picture' => $imageName,
             'email' => $data['email'],
             'phone' => $data['phone'],
             'password' => bcrypt($data['password']),
