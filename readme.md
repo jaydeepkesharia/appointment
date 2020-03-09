@@ -9,7 +9,7 @@
 
 -after set up of .env file to generate APP_KEY run one command "php artisan key:generate" at command line
 
--after complete above mention steps to run project in your browser type url "localhost/appointment/public" for local server
+-after completion of above mention steps; to run project in your browser type url "localhost/appointment/public" for local server
 
 -after successful set up u will find laravel home screen at ur browser and login | register link at top right corner of the screen
 
