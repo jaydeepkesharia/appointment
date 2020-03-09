@@ -11,10 +11,10 @@ class clientmentSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('clients')->insert([
+       /* DB::table('clients')->insert([
             'name' => str_random(10),
             'email' => str_random(10).'@gmail.com',
-            'phone' => integer_random(10),
-        ]);
+            'phone' => num_random(1,10),
+        ]);*/
     }
 }
